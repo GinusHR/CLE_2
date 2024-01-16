@@ -95,7 +95,10 @@ input{
 
 
 footer {
-padding: 1vw;
+    padding: 1vw;
+    bottom: 0;
+    position: fixed;
+    float: none;
 }
 
 .footerdiv {

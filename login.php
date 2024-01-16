@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Login</title>
+    <title>Viktoria Schoonmaakbedrijf-login</title>
 </head>
 
 
@@ -72,23 +72,31 @@ if (isset($_POST['submit'])) {
 
 <header>
     <?php
-        include_once 'includes/nav.php';
+     if($login = true) {
+         include_once 'includes/login_nav.php';
+     } else {
+         include_once 'includes/nav.php';
+     }
+
     ?>
 </header>
 <section>
 
-    <?php if($login) {?>
-
+    <?php if($login = true) {?>
+        <div class="bigtext">
+            <div>
+                <p>U bent al ingelogd</p>
+            </div>
+            <div class="smalltaxt">
+                <p>U kunt nu afspraken maken</p>
+            </div>
+            <div class="linkdiv">
+                Naar <a href="afspraken.php">Afspraken</a>
+            </div>
+        </div>
 
     <?php } else {?>
-    <div class="bigtext">
-        <div>
-            <p>Log in</p>
-        </div>
-        <div class="smalltaxt">
-            <p>U moet inloggen voordat u een afspraak kan maken</p>
-        </div>
-    </div>
+
     <div class="formdiv">
         <form action="" method="post">
 
@@ -136,28 +144,14 @@ if (isset($_POST['submit'])) {
     </div>
 
 </section>
+
+
 </body>
 
-<footer>
-    <div class="footerdiv">
-        <div>
-            <div>
-                www.viktoriaschoonmaakbedrijf.com
-            </div>
-            <div>
-            Neem contact op: nummer
-            </div>
 
-        </div>
+  <?php
+    include_once 'includes/footer.php';
+  ?>
 
-        <div>
-            <div class="linkdiv">
-                <p> Meer weten? <a href="overOns.php">Over ons</a></p>
-
-            </div>
-        </div>
-    </div>
-
-</footer>
 
 </html>
