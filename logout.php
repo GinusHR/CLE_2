@@ -28,7 +28,7 @@ if(!key_exists('user', $_SESSION))
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Login</title>
+    <title>Logout</title>
 </head>
 
 
@@ -65,25 +65,9 @@ if(!key_exists('user', $_SESSION))
 </body>
 
 <footer>
-    <div class="footerdiv">
-        <div>
-            <div>
-                www.viktoriaschoonmaakbedrijf.com
-            </div>
-            <div>
-            Neem contact op: nummer
-            </div>
-
-        </div>
-
-        <div>
-            <div class="linkdiv">
-                <p> Meer weten? <a href="overOns.php">Over ons</a></p>
-
-            </div>
-        </div>
-    </div>
-
+    <?php
+    include_once 'includes/footer.php';
+    ?>
 </footer>
 
 </html>
