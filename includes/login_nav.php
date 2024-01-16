@@ -7,6 +7,6 @@
         <a href="contact.php">Contact</a>
     </div>
     <div class="navLoginLinks">
-        <a href="logUit.php">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </nav>
