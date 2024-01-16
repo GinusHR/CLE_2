@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 
     if (empty($emailError) && empty($passwordError)) {
 
-        $query = "SELECT * FROM users WHERE email = $email";
+        $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($db, $query);
 
         if ($result) {
