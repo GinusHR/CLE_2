@@ -1,5 +1,57 @@
 <?php
+/** @var mysqli $db */
 
+session_start();
+
+require_once 'includes/database.php';
+
+$login = false;
+
+$emailError = '';
+$passwordError = '';
+
+if (isset($_POST['submit'])) {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    if (empty($_POST['email'])) {
+        $emailError = 'Email cannot be empty!';
+
+    }
+
+    if (empty($_POST['password'])) {
+        $passwordError = 'Password cannot be empty!';
+    }
+
+    if (empty($emailError) && empty($passwordError)) {
+
+        $query = "SELECT * FROM users WHERE email = $email";
+        $result = mysqli_query($db, $query);
+
+        if ($result) {
+            $user = mysqli_fetch_assoc($result);
+
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['user'] = [
+                    'name' => $user['name'],
+                    'email' => $user['email'],
+                ];
+                $login = true;
+                header('Location: index.php');
+            } else {
+                $errors['loginFailed'] = 'Incorrect login credentials';
+            }
+
+        } else {
+            $errors['loginFailed'] = 'Incorrect login credentials';
+        }
+
+    } else {
+        die('Database query error: ' . mysqli_error($db));
+    }
+
+
+}
 ?>
 <!doctype html>
 
@@ -24,6 +76,11 @@
     ?>
 </header>
 <section>
+
+    <?php if($login) {?>
+
+
+    <?php } else {?>
     <div class="bigtext">
         <div>
             <p>Log in</p>
@@ -33,7 +90,7 @@
         </div>
     </div>
     <div class="formdiv">
-        <form action="post">
+        <form action="" method="post">
 
             <div class="veld">
                 <div >
@@ -41,8 +98,10 @@
                         <label for="email">Email</label>
                     </div>
                     <div>
-                        <input name="email" id="email" type="text" placeholder="Email bvb. naam@org.nl">
-
+                        <input name="email" id="email" type="text" placeholder="Email bvb. naam@org.nl" value="<?= $email ?? '' ?> ">
+                       <div class="error">
+                           <?= $emailError ?>
+                       </div>
                     </div>
 
                 </div>
@@ -51,7 +110,10 @@
                         <label for="wachtwoord">Wachtwoord</label>
                     </div>
                     <div>
-                        <input name="wachtwoord" id="wachtwoord"  type="text" placeholder="Wachtwoord">
+                        <input name="wachtwoord" id="wachtwoord"  type="text" placeholder="Wachtwoord" value="<?= $password ?? '' ?>">
+                        <div class="error">
+                            <?= $passwordError ?>
+                        </div>
                     </div>
 
                 </div>
@@ -63,18 +125,19 @@
                 </div>
 
                 <div  class="linkdiv">
-                    <p>Nog geen account? <a href="registratie">Registreer</a> hier.</p>
+                    <p>Nog geen account? <a href="registratie.php">Registreer</a> hier.</p>
                 </div>
             </div>
 
 
 
         </form>
-
+        <?php } ?>
     </div>
 
 </section>
 </body>
+
 <footer>
     <div class="footerdiv">
         <div>
@@ -89,7 +152,7 @@
 
         <div>
             <div class="linkdiv">
-                <p> Meer weten? <a href="over ons">Over ons</a></p>
+                <p> Meer weten? <a href="overOns.php">Over ons</a></p>
 
             </div>
         </div>
