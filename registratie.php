@@ -22,6 +22,13 @@ if(isset($_POST['submit'])) {
         $errors['wachtwoord'] = 'Voer een wachtwoord in.';
     }
 
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+    if($user) {
+        $errors['email'] = 'Dit email is al in gebruik.';
+    }
+
     if (empty($errors)) {
         //INSERT in DB
         $wachtwoord = password_hash($wachtwoord, PASSWORD_DEFAULT);
@@ -79,7 +86,7 @@ if(isset($_POST['submit'])) {
                             <label for="naam">Naam</label>
                         </div>
                         <div>
-                            <input name="naam" id="naam" type="text" placeholder="Naam">
+                            <input name="naam" id="naam" type="text" placeholder="Naam" required>
                         </div>
                     </div>
                     <div >
@@ -87,7 +94,7 @@ if(isset($_POST['submit'])) {
                             <label for="email">Email</label>
                         </div>
                         <div>
-                            <input name="email" id="email" type="text" placeholder="Email bvb. naam@org.nl">
+                            <input name="email" id="email" type="email" placeholder="Email bvb. naam@org.nl" required>
                         </div>
                     </div>
                     <div >
@@ -95,7 +102,7 @@ if(isset($_POST['submit'])) {
                             <label for="wachtwoord">Wachtwoord</label>
                         </div>
                         <div>
-                            <input name="wachtwoord" id="wachtwoord"  type="password" placeholder="Wachtwoord">
+                            <input name="wachtwoord" id="wachtwoord"  type="password" placeholder="Wachtwoord" required>
                         </div>
                     </div>
                     <div>
@@ -122,7 +129,7 @@ if(isset($_POST['submit'])) {
             </div>
             <div>
                 <div class="linkdiv">
-                    <p> Meer weten? <a href="over ons">Over ons</a></p>
+                    <p> Meer weten? <a href="overons.php">Over ons</a></p>
                 </div>
             </div>
         </div>
