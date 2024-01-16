@@ -30,14 +30,17 @@ if (isset($_POST['submit'])) {
 
         if ($result) {
             $user = mysqli_fetch_assoc($result);
-
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['user'] = [
-                    'name' => $user['name'],
-                    'email' => $user['email'],
-                ];
-                $login = true;
-                header('Location: index.php');
+            if($user) {
+                if (password_verify($password, $user['password'])) {
+                    $_SESSION['user'] = [
+                        'name' => $user['name'],
+                        'email' => $user['email'],
+                    ];
+                    $login = true;
+                    header('Location: index.php');
+                } else {
+                    $errors['loginFailed'] = 'Incorrect login credentials';
+                }
             } else {
                 $errors['loginFailed'] = 'Incorrect login credentials';
             }
