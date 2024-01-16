@@ -10,7 +10,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Login</title>
 </head>
 
@@ -18,29 +19,9 @@
 <body>
 
 <header>
-    <div class="navbar">
-
-        <div class="navdiv">
-            <div class="navknop">
-                <a href="home">Home</a>
-            </div>
-        </div>
-
-        <div class="titel">
-            <p> Victoria schoonmaakbedrijf</p>
-        </div>
-
-        <div class="navdiv">
-            <div class="navknop">
-                <a href="uitloggen">Uitloggen</a>
-            </div>
-
-        </div>
-
-
-    </div>
-
-
+    <?php
+        include_once 'includes/nav.php';
+    ?>
 </header>
 <section>
     <div class="bigtext">
