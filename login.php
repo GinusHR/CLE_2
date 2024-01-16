@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
     <?php if($login = true) {?>
         <div class="bigtext">
             <div>
-                <p>U ben al ingelogd</p>
+                <p>U bent al ingelogd</p>
             </div>
             <div class="smalltaxt">
                 <p>U kunt nu afspraken maken</p>
