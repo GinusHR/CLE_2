@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 
 <header>
     <?php
-     if($login = true) {
+     if($login) {
          include_once 'includes/login_nav.php';
      } else {
          include_once 'includes/nav.php';
@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
 </header>
 <section>
 
-    <?php if($login = true) {?>
+    <?php if($login) {?>
         <div class="bigtext">
             <div>
                 <p>U bent al ingelogd</p>
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
                         <label for="email">Email</label>
                     </div>
                     <div>
-                        <input name="email" id="email" type="text" placeholder="Email bvb. naam@org.nl" value="<?= $email ?? '' ?> ">
+                        <input name="email" id="email" type="email" placeholder="Email bvb. naam@org.nl" value="<?= $email ?? '' ?> " required>
                        <div class="error">
                            <?= $emailError ?>
                        </div>
@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
                         <label for="wachtwoord">Wachtwoord</label>
                     </div>
                     <div>
-                        <input name="wachtwoord" id="wachtwoord"  type="text" placeholder="Wachtwoord" value="<?= $password ?? '' ?>">
+                        <input name="wachtwoord" id="wachtwoord"  type="password" placeholder="Wachtwoord" value="<?= $password ?? '' ?>" required>
                         <div class="error">
                             <?= $passwordError ?>
                         </div>
