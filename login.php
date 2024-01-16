@@ -72,12 +72,7 @@ if (isset($_POST['submit'])) {
 
 <header>
     <?php
-     if($login) {
-         include_once 'includes/login_nav.php';
-     } else {
-         include_once 'includes/nav.php';
-     }
-
+     include_once 'includes/nav.php';
     ?>
 </header>
 <section>
@@ -115,10 +110,10 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div >
                     <div>
-                        <label for="wachtwoord">Wachtwoord</label>
+                        <label for="password">Wachtwoord</label>
                     </div>
                     <div>
-                        <input name="wachtwoord" id="wachtwoord"  type="password" placeholder="Wachtwoord" value="<?= $password ?? '' ?>" required>
+                        <input name="password" id="password"  type="password" placeholder="Wachtwoord" value="<?= $password ?? '' ?>" required>
                         <div class="error">
                             <?= $passwordError ?>
                         </div>
@@ -127,7 +122,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div>
-                    <button class="form-knop">
+                    <button type="submit" value="submit" name="submit" class="form-knop">
                         Log in
                     </button>
                 </div>
@@ -147,11 +142,7 @@ if (isset($_POST['submit'])) {
 
 
 </body>
-
-
   <?php
     include_once 'includes/footer.php';
   ?>
-
-
 </html>
