@@ -95,7 +95,7 @@ if(isset($_POST['submit'])) {
                             <label for="email">Email</label>
                         </div>
                         <div>
-                            <input name="email" id="email" type="email" placeholder="Email bvb. naam@org.nl" required>
+                            <input name="email" id="email" type="email" placeholder="Email" required>
                         </div>
                     </div>
                     <div >
