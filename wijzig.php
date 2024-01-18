@@ -70,13 +70,13 @@ $dates = mysqli_fetch_all($result);
                     <tr>
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo substr($datetime[1], 0, -3)?></th>
-                        <th><?php echo $date[2]?></th>
+                        <th><?php echo $date[2]?>
+                        <th class="tableLink"><a href="edit.php?<?php echo $date[0]?>">Wijzig</a></th>
                         <th class="tableLink"><a href="delete.php?<?php echo $date[0]?>">Cancel</a></th>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <button class="form-knop">Wijzig...</button>
         <?php else: ?>
         <div class="smalltaxt">
             <div>
