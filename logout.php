@@ -28,7 +28,7 @@ if(!key_exists('user', $_SESSION))
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Logout</title>
+    <title>Viktoria Schoonmaakbedrijf - Logout</title>
 </head>
 
 
