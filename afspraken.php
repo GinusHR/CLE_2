@@ -32,7 +32,13 @@ if (!isset($_SESSION['user'])) {
         ?>
     </header>
 
-<div >
+<div class="div0" >
+
+    <div class="bigtext">
+        <p>Maak een afspraak</p>
+
+    </div>
+
     <form class="form2" action="" method="post">
         <div class="div_ultra">
             <div class="div1">
@@ -66,7 +72,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
 
                 </div>
-
+                    <p>&</p>
                 <div>
                     <div>
                         <label for="time">Tijd</label>
