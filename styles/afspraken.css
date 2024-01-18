@@ -1,5 +1,23 @@
+
+
 .form2 {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center ;
+}
+
+.div_ultra{
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    background-color: #cebeaf;
+}
+
+.div2\/5 {
+    display: flex;
+    flex-direction: row;
+}
+
+.input2 {
+    width: 5vw;
 }
