@@ -14,22 +14,21 @@ require_once 'includes/database.php';
 
 $email = $_SESSION['user']['email'];
 
-$query = "SELECT id FROM users WHERE email = '$email'";
-$result = mysqli_query($db, $query);
-$user_id = mysqli_fetch_assoc($result)['id'];
-
 $query = "SELECT admin FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 $user_admin = mysqli_fetch_assoc($result)['admin'];
-if($user_admin == '1')
+
+if($user_admin != '1')
 {
-    header("Location: wijzigADMIN.php");
+    header("Location: wijzig.php");
     exit;
 }
 
-$query = "SELECT * FROM dates where user_id = '$user_id'";
+$query = "SELECT * FROM dates";
 $result = mysqli_query($db, $query);
 $dates = mysqli_fetch_all($result);
+
+
 ?>
 
 <!doctype html>
@@ -62,16 +61,24 @@ $dates = mysqli_fetch_all($result);
             <table class="wijzigTable">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Location</th>
-                        <th colspan="1"></th>
+                        <th>Naam</th>
+                        <th>Email</th>
+                        <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Locatie</th>
+                        <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($dates as $date):
-                    $datetime = explode(" ", $date[4]);?>
+                    $datetime = explode(" ", $date[4]);
+                    $query = "SELECT * FROM users WHERE id = '$date[1]'";
+                    $result = mysqli_query($db, $query);
+                    $user = mysqli_fetch_assoc($result);
+                ?>
                     <tr>
+                        <th><?php echo $user['name']?></th>
+                        <th><?php echo $user['email']?></th>
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo substr($datetime[1], 0, -3)?></th>
                         <th><?php echo $date[2]?>
