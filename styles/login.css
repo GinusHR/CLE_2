@@ -84,6 +84,7 @@ input{
     font-size: 16px;
     margin-top: 1vw;
     border-radius: 12px;
+    cursor: pointer;
 }
 .error {
     display: flex;
