@@ -1,5 +1,4 @@
-
-    <div class="footerDiv">
+<div class="footerDiv">
         <div>
             <div>
                 www.viktoriaschoonmaakbedrijf.com
@@ -10,9 +9,8 @@
         </div>
         <div>
             <div class="linkdiv">
-                <p> Meer weten? <a href="../overOns.php">Over ons &raquo </a></p>
+                <p> Meer weten? <a href="overOns.php">Over ons &raquo </a></p>
             </div>
         </div
 
-
-
+</div>

@@ -174,12 +174,7 @@ session_start();
             <h1 class="bigtext">Ons Verhaal</h1>
             <div class="introOverOns">
                 <p>
-                    Welkom bij Viktoria Schoonmaakbedrijf, waar we geloven in het bieden van hoge kwaliteit
-                    voor een lage kwantiteit. Onze toewijding aan uitmuntendheid betekent dat we streven naar
-                    een vlekkeloos resultaat. Wij zijn toegewijd aan het leveren van hoogwaardige
-                    schoonmaakdiensten, waardoor uw leef- en werkomgeving straalt met frisheid.
-                    Ontdek een wereld van vlekkeloze reinheid met Viktoria Schoonmaakbedrijf - waar
-                    elk detail telt en uw tevredenheid onze prioriteit is.
+                    Ons bedrijf is geboren uit een streven naar kwaliteit en klanttevredenheid, gedreven door de overtuiging dat een opgeruimde omgeving bijdraagt aan het welzijn van iedereen. Bij Viktoria zijn we trots op onze professionele aanpak, deskundig personeel en innovatieve reinigingsmethoden. Ontdek hoe Viktoria Schoonmaakbedrijf een verschil maakt in hygiëne en netheid, terwijl we streven naar een omgeving die niet alleen schoon is, maar ook inspirerend en gezond.
                 </p>
             </div>
 
