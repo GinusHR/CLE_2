@@ -99,9 +99,13 @@ input{
     margin-top: 1vw;
     border-radius: 12px;
 }
-
-
-
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: red;
+}
 footer {
     padding: 1vw;
     bottom: 0;
