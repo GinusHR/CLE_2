@@ -5,7 +5,7 @@
                 www.viktoriaschoonmaakbedrijf.com
             </div>
             <div class="linkdiv">
-                Neem <a href="contact.php">Contact</a> op.
+                Neem <a href="contact.php">contact</a> op.
             </div>
         </div>
         <div>
