@@ -42,23 +42,26 @@ if (!isset($_SESSION['user'])) {
     <form class="form2" action="" method="post">
         <div class="div_ultra">
             <div class="div1">
-                <div class="naamDiv">
+
+                <div class="locatieDiv">
                     <div>
-                        <label for="name">Naam</label>
+                        <label for="location">Locatie</label>
                     </div>
 
                     <div>
-                        <input id="name" name="name" type="text" required>
+                        <input id="location" name="location" type="text" required>
                     </div>
                 </div>
 
-                <div class="emailDiv">
+
+
+                <div class="omschrijvingDiv">
                     <div>
-                        <label for="email">Email</label>
+                        <label for="omschrijving">Omschrijving</label>
                     </div>
 
                     <div>
-                        <input id="email" name="email" type="email" required>
+                        <textarea name="omschrijving" id="omschrijving" cols="30" rows="10"></textarea>
                     </div>
                 </div>
 
@@ -91,13 +94,15 @@ if (!isset($_SESSION['user'])) {
                 </div>
 
             </div>
-            <div class="locatieDiv">
+
+
+            <div class="soortDiv">
                 <div>
-                    <label for="location">Locatie</label>
+                    <label for="soort">Soort afspraak</label>
                 </div>
 
                 <div>
-                    <input id="location" name="location" type="text" required>
+                    <input id="soort" name="soort" type="text" required>
                 </div>
             </div>
 
