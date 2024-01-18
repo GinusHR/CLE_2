@@ -4,6 +4,7 @@
         <a href="index.php">Home</a>
         <a href="afspraken.php">Afspraken</a>
         <a href="wijzig.php">Wijzig afspraak</a>
+        <a href="agenda.php">Agenda</a>
         <a href="overOns.php">Over Ons</a>
         <a href="contact.php">Contact</a>
 

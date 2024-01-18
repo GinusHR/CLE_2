@@ -147,7 +147,7 @@ footer {
     color: purple;
 }
 
-.registratieMain {
+.registratieMain, .agendaMain {
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -157,4 +157,14 @@ footer {
     text-align: center;
     font-size: 1.3rem;
     margin: 0;
+}
+
+table {
+    width: 50vw;
+    align-self: center;
+}
+
+
+td {
+    border: solid black 2px;
 }
