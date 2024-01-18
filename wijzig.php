@@ -48,43 +48,43 @@ $dates = mysqli_fetch_all($result);
 </header>
 
 <main class="wijzigMain">
-
-    <div class="bigtext">
-        <div>
-            <p>Wijzig afspraken</p>
+    <div class="backgroundDiv">
+        <div class="bigtext">
+            <div>
+                <p>Wijzig afspraken</p>
+            </div>
         </div>
-    </div>
-    <?php if(!empty($dates)): ?>
-        <table class="wijzigTable">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Location</th>
-                    <th colspan="1"></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($dates as $date):
-                $datetime = explode(" ", $date[4]);?>
-                <tr>
-                    <th><?php echo $datetime[0]?></th>
-                    <th><?php echo substr($datetime[1], 0, -3)?></th>
-                    <th><?php echo $date[2]?></th>
-                    <th class="tableLink"><a href="delete.php?<?php echo $date[0]?>">Cancel</a></th>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-        <button class="form-knop">Wijzig...</button>
-    <?php else: ?>
-    <div class="smalltaxt">
-        <div>
-            <p>Geen afspraken gevonden...</p>
+        <?php if(!empty($dates)): ?>
+            <table class="wijzigTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Location</th>
+                        <th colspan="1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($dates as $date):
+                    $datetime = explode(" ", $date[4]);?>
+                    <tr>
+                        <th><?php echo $datetime[0]?></th>
+                        <th><?php echo substr($datetime[1], 0, -3)?></th>
+                        <th><?php echo $date[2]?></th>
+                        <th class="tableLink"><a href="delete.php?<?php echo $date[0]?>">Cancel</a></th>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <button class="form-knop">Wijzig...</button>
+        <?php else: ?>
+        <div class="smalltaxt">
+            <div>
+                <p>Geen afspraken gevonden...</p>
+            </div>
         </div>
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
-
 </main>
 
 <footer>
