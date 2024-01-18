@@ -35,7 +35,8 @@ if (isset($_POST['submit'])) {
                         'name' => $user['name'],
                         'email' => $user['email'],
                     ];
-                    header('Location:index.php');
+                    $location = $_GET['location'] ?? 'index.php';
+                    header('Location: '.$location);
                     exit;
                 }
             }
