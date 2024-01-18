@@ -91,6 +91,15 @@ if (isset($_POST['submit'])) {
     <?php endif; ?>
     <div class="formdiv">
         <form action="" method="post">
+            <div class="bigtext">
+                <div>
+                    <p>U moet nog inloggen</p>
+                </div>
+                <div class="smalltaxt">
+                    <p>U moet ingelogd zijn om een afspraak te maken.</p>
+                </div>
+
+            </div>
 
             <div class="veld">
                 <div >

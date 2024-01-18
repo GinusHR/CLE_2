@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Viktoria Schoonmaakbedrijf-homepage</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
@@ -38,4 +39,6 @@
     </div>
 </main>
 </body>
+
+
 </html>

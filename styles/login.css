@@ -19,13 +19,6 @@ a {
     padding: 2vw;
 }
 
-.navlinks {
-    font-weight: bold;
-}
-
-.navCompanyName {
-    font-weight: bold;
-}
 
 .navknop {
     padding: 1vw;
@@ -40,11 +33,7 @@ a:hover {
     color: orange;
 }
 
-.titel{
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 36px;
-}
+
 
 body {
     background-color: #cebeaf;
@@ -109,8 +98,7 @@ input{
 footer {
     padding: 1vw;
     bottom: 0;
-    position: fixed;
-    float: none;
+
 }
 
 .footerdiv {
