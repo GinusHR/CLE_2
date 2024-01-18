@@ -94,11 +94,6 @@ input{
     font-weight: bold;
     color: red;
 }
-footer {
-    padding: 1vw;
-    bottom: 0;
-
-}
 
 .footerDiv {
     display: flex;
