@@ -1,11 +1,11 @@
 
-    <div class="footerdiv">
+    <div class="footerDiv">
         <div>
             <div>
                 www.viktoriaschoonmaakbedrijf.com
             </div>
-            <div>
-                Neem contact op: nummer
+            <div class="linkdiv">
+                Neem <a href="contact.php">Contact</a> op.
             </div>
         </div>
         <div>

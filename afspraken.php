@@ -42,27 +42,34 @@ if (!isset($_SESSION['user'])) {
     <form class="form2" action="" method="post">
         <div class="div_ultra">
             <div class="div1">
-              <div>
-                    <label for="name">Naam</label>
+                <div class="naamDiv">
+                    <div>
+                        <label for="name">Naam</label>
+                    </div>
+
+                    <div>
+                        <input id="name" name="name" type="text" required>
+                    </div>
                 </div>
 
-                <div>
-                    <input id="name" name="name" type="text" required>
-                 </div>
+                <div class="emailDiv">
+                    <div>
+                        <label for="email">Email</label>
+                    </div>
 
-                <div>
-                     <label for="email">Email</label>
+                    <div>
+                        <input id="email" name="email" type="email" required>
+                    </div>
                 </div>
 
-                <div>
-                    <input id="email" name="email" type="email" required>
-                </div>
+
+
             </div>
 
         <div class="div2">
             <div class="div2/5">
 
-                <div>
+                <div class="datumDiv">
                     <div>
                         <label for="date">Datum</label>
                     </div>
@@ -73,7 +80,7 @@ if (!isset($_SESSION['user'])) {
 
                 </div>
                     <p>&</p>
-                <div>
+                <div class="tijdDiv">
                     <div>
                         <label for="time">Tijd</label>
                     </div>
@@ -83,17 +90,17 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 </div>
 
+            </div>
+            <div class="locatieDiv">
+                <div>
+                    <label for="location">Locatie</label>
+                </div>
 
-
+                <div>
+                    <input id="location" name="location" type="text" required>
+                </div>
             </div>
 
-            <div>
-                <label for="location">Locatie</label>
-            </div>
-
-            <div>
-                <input id="location" name="location" type="text" required>
-            </div>
         </div>
         </div>
 
