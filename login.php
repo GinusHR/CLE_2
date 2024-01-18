@@ -34,6 +34,7 @@ if (isset($_POST['submit'])) {
                     $_SESSION['user'] = [
                         'name' => $user['name'],
                         'email' => $user['email'],
+                        'id' => $user['id']
                     ];
                     $location = $_GET['location'] ?? 'index.php';
                     header('Location: '.$location);

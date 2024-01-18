@@ -228,7 +228,7 @@ session_start();
     <div class="container right">
         <div class="content">
             <h2>2019 t/m 2023</h2>
-            <p>In de daaropvolgende jaren, 2019, 2020 en 2023, werd het klantenbestand verder uitgebreid met gerenommeerde namen zoals Gemeente Sport Breda, basisschool Springplank, Breepark en het COA.</p>
+            <p>In de daaropvolgende jaren, 2019 t/m 2023, werd het klantenbestand verder uitgebreid met gerenommeerde namen zoals Gemeente Sport Breda, basisschool Springplank, Breepark en het COA.</p>
         </div>
     </div>
     <div class="container left">
