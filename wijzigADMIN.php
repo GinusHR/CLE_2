@@ -5,7 +5,7 @@ if(!isset($_SESSION))
 }
 if(!isset($_SESSION['user']))
 {
-    header("Location: login.php?location=wijzig.php");
+    header("Location: login.php?location=wijzigADMIN.php");
     exit;
 }
 
