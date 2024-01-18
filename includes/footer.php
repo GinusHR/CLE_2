@@ -1,4 +1,4 @@
-<footer>
+
     <div class="footerdiv">
         <div>
             <div>
@@ -13,6 +13,6 @@
                 <p> Meer weten? <a href="overOns.php">Over ons > </a></p>
             </div>
         </div
-</footer>
+
 
 
