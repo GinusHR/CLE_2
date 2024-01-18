@@ -192,7 +192,7 @@ session_start();
     <div class="container right">
         <div class="content">
             <h2>2006</h2>
-            <p>Het jaar daarop,in 2006 werd de eerste grote klant verworven, namelijk de Montessori school.</p>
+            <p>Het jaar daarop, in 2006 werd de eerste grote klant verworven, namelijk de Montessori school.</p>
         </div>
     </div>
     <div class="container left">
@@ -204,7 +204,7 @@ session_start();
     <div class="container right">
         <div class="content">
             <h2>2008</h2>
-            <p>gevolgd door de introductie van vloerbehandelingsservice in 2008.</p>
+            <p>Gevolgd door de introductie van vloerbehandelingsservice in 2008.</p>
         </div>
     </div>
     <div class="container left">
@@ -242,7 +242,9 @@ session_start();
 </body>
 
 <footer>
-
+    <?php
+        include_once 'includes/footer.php';
+    ?>
 </footer>
 
 
