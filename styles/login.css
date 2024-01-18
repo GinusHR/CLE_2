@@ -52,6 +52,7 @@ body {
     font-weight: normal;
 }
 
+
 .formdiv{
     margin-right: 25vw;
     margin-left: 25vw;
@@ -99,8 +100,9 @@ footer {
 
 }
 
-.footerdiv {
+.footerDiv {
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
 }

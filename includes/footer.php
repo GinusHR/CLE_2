@@ -1,16 +1,16 @@
 
-    <div class="footerdiv">
+    <div class="footerDiv">
         <div>
             <div>
                 www.viktoriaschoonmaakbedrijf.com
             </div>
-            <div>
-                Neem contact op: nummer
+            <div class="linkdiv">
+                Neem <a href="contact.php">contact</a> op.
             </div>
         </div>
         <div>
             <div class="linkdiv">
-                <p> Meer weten? <a href="../overOns.php">Over ons > </a></p>
+                <p> Meer weten? <a href="../overOns.php">Over ons &raquo </a></p>
             </div>
         </div
 

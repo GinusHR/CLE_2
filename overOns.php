@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,83 +11,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Viktoria Schoonmaakbedrijf-homepage</title>
+    <title>Viktoria Schoonmaakbedrijf- About us</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-</head>
-<style>
-    /* Your CSS styles go here */
-    <?php
-    $fontFaces = [
-        'Poppins' => ['700', 'https://static.trustoo.nl/fonts/poppins-v20-latin-700.woff2', 'https://static.trustoo.nl/fonts/poppins-v20-latin-700.woff'],
-        'Mulish' => [
-            '400' => 'https://static.trustoo.nl/fonts/mulish-v12-latin-regular.woff2',
-            '600' => 'https://static.trustoo.nl/fonts/mulish-v12-latin-600.woff2',
-            '800' => 'https://static.trustoo.nl/fonts/mulish-v12-latin-800.woff2',
-        ],
-        'Material Icons Outlined' => ['400', 'https://static.trustoo.nl/fonts/icons_2023.woff2'],
-    ];
-
-    foreach ($fontFaces as $fontName => $fontVariants) {
-        foreach ($fontVariants as $fontWeight => $fontSrc) {
-            echo "@font-face {
-                  font-family: '$fontName';
-                  font-style: normal;
-                  font-display: swap;
-                  font-weight: $fontWeight;
-                  src: local(''),
-                       url('$fontSrc') format('woff2'); /* Add additional formats if needed */
-                }\n";
-        }
-    }
-    ?>
-</style>
-<body>
-<header>
-    <?php
-    include_once 'includes/nav.php';
-    ?>
-</header>
-
-<main>
-    <div>
-        <section class="onsverhaal" style="text-align: center;">
-            <h1 class="onsverhaaltitel">Ons Verhaal</h1>
-            <p>
-                Zeker, hier is een korte introductie voor de "Over Ons" pagina van de website van Viktoria Schoonmaakbedrijf:
-
-                ---
-
-                Welkom bij Viktoria Schoonmaakbedrijf, waar toewijding aan uitmuntendheid en passie voor een schone leef- en werkomgeving samenkomen. Ons bedrijf is geboren uit een streven naar kwaliteit en klanttevredenheid, gedreven door de overtuiging dat een opgeruimde omgeving bijdraagt aan het welzijn van iedereen. Bij Viktoria zijn we trots op onze professionele aanpak, deskundig personeel en innovatieve reinigingsmethoden. Ontdek hoe Viktoria Schoonmaakbedrijf een verschil maakt in hygiëne en netheid, terwijl we streven naar een omgeving die niet alleen schoon is, maar ook inspirerend en gezond.
-            </p>
-        </section>
-    </div>
-</main>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .onsverhaal {
 
-            max-width: 800px; /* Stel de gewenste maximale breedte in */
-            margin: 0 auto; /* Hierdoor wordt het gecentreerd op brede schermen */
-            margin-left: 350px;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .introOverOns {
+            background-color: #E4DBD2;
+            margin: 0 15vw;
+            padding: 2vw;
+            border: #E4DBD2 1px solid;
+            border-radius: 15px;
         }
+
         * {
             box-sizing: border-box;
         }
-        
+
         body {
             background-color: #cebeaf;
-            font-family: Helvetica, sans-serif;
+
         }
 
         /* The actual timeline (the vertical ruler) */
@@ -95,19 +44,19 @@
         .timeline::after {
             content: '';
             position: absolute;
-            width: 10px;
+            width: 6px;
             background-color: white;
             top: 0;
-            bottom: -400px;
+            bottom: 0;
             left: 50%;
-            margin-left: -5px;
+            margin-left: -3px;
         }
 
         /* Container around content */
         .container {
             padding: 10px 40px;
             position: relative;
-
+            background-color: inherit;
             width: 50%;
         }
 
@@ -209,62 +158,83 @@
             }
         }
     </style>
+
 </head>
+
 <body>
+<header>
+    <?php
+    include_once 'includes/nav.php';
+    ?>
+</header>
+
+<main>
+    <div>
+        <section>
+            <h1 class="bigtext">Ons Verhaal</h1>
+            <div class="introOverOns">
+                <p>
+                    Welkom bij Viktoria Schoonmaakbedrijf, waar we geloven in het bieden van hoge kwaliteit
+                    voor een lage kwantiteit. Onze toewijding aan uitmuntendheid betekent dat we streven naar
+                    een vlekkeloos resultaat. Wij zijn toegewijd aan het leveren van hoogwaardige
+                    schoonmaakdiensten, waardoor uw leef- en werkomgeving straalt met frisheid.
+                    Ontdek een wereld van vlekkeloze reinheid met Viktoria Schoonmaakbedrijf - waar
+                    elk detail telt en uw tevredenheid onze prioriteit is.
+                </p>
+            </div>
+
+        </section>
+    </div>
+</main>
 
 <div class="timeline">
     <div class="container left">
         <div class="content">
-            <h2>2005</h2>
-            <p>In 2005 is het bedrijf opgericht, gespecialiseerd in dagelijkse schoonmaakdiensten. </p>
+            <h2>2017</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
         </div>
     </div>
     <div class="container right">
         <div class="content">
-            <h2>2006</h2>
-            <p>Het jaar daarop, in 2006, werd de eerste grote klant verworven, namelijk de Montessori school. </p>
+            <h2>2016</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
         </div>
     </div>
     <div class="container left">
+        <div class="content">
+            <h2>2015</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>2012</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+        </div>
+    </div>
+    <div class="container left">
+        <div class="content">
+            <h2>2011</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+        </div>
+    </div>
+    <div class="container right">
         <div class="content">
             <h2>2007</h2>
-            <p>  In 2007 werd het dienstenaanbod uitgebreid met beglazingsservice</p>
-        </div>
-    </div>
-    <div class="container right">
-        <div class="content">
-            <h2>2008</h2>
-            <p>gevolgd door de introductie van vloerbehandelingsservice in 2008.</p>
-        </div>
-    </div>
-    <div class="container left">
-        <div class="content">
-            <h2>2009</h2>
-            <p>Gedurende het jaar 2009 werden werknemers in dienst genomen, wat bijdroeg aan de verdere groei van het bedrijf.</p>
-        </div>
-    </div>
-    <div class="container right">
-        <div class="content">
-            <h2> 2010 t/m 2012</h2>
-            <p>In de daaropvolgende jaren, 2010, 2011 en 2012, werden meerdere grote klanten aangetrokken, waaronder Kober en de katholieke basisscholen Zandberg, Mandt en de Stee.</p>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
         </div>
     </div>
 </div>
-<div class="container left">
-    <div class="content">
-        <h2>2017</h2>
-        <p>Deze positieve trend zette zich voort, en in 2017 werden T Web in Teteringen en HelderCamara aan de klantenlijst toegevoegd.</p>
-    </div>
-</div>
-<div class="container right">
-    <div class="content">
-        <h2>2019 t/m 2023</h2>
-        <p>In de daaropvolgende jaren, 2019, 2020 en 2023, werd het klantenbestand verder uitgebreid met gerenommeerde namen zoals Gemeente Sport Breda, basisschool Springplank, Breepark en het COA.</p>
-    </div>
-</div>
-<div class="container left">
-    <div class="content">
-        <h2>Het heden</h2>
-        <p>Het bedrijf heeft zich inmiddels ontwikkeld tot een serieus familiebedrijf, waar zowel tevreden werknemers als klanten een belangrijke rol spelen. Het streven naar klanttevredenheid staat centraal, met een focus op zowel kwaliteit als kwantiteit, 24/7. Het bedrijf beschikt over ervaren professionals die bekend zijn met alarmsystemen en nauwe banden onderhouden met meldkamers van beveiligingsdiensten om de veiligheid van hun klanten te waarborgen.</p>
-    </div>
-</div>
+
+</body>
+
+<footer>
+
+</footer>
+
+
+</html>
+
+
+
+
