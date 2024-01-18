@@ -185,38 +185,56 @@ session_start();
 <div class="timeline">
     <div class="container left">
         <div class="content">
-            <h2>2017</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            <h2>2005</h2>
+            <p>In 2005 is het bedrijf opgericht, gespecialiseerd in dagelijkse schoonmaakdiensten. </p>
         </div>
     </div>
     <div class="container right">
         <div class="content">
-            <h2>2016</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            <h2>2006</h2>
+            <p>Het jaar daarop,in 2006 werd de eerste grote klant verworven, namelijk de Montessori school.</p>
         </div>
     </div>
     <div class="container left">
-        <div class="content">
-            <h2>2015</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-        </div>
-    </div>
-    <div class="container right">
-        <div class="content">
-            <h2>2012</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-        </div>
-    </div>
-    <div class="container left">
-        <div class="content">
-            <h2>2011</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-        </div>
-    </div>
-    <div class="container right">
         <div class="content">
             <h2>2007</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            <p> In 2007 werd het dienstenaanbod uitgebreid met beglazingsservice.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>2008</h2>
+            <p>gevolgd door de introductie van vloerbehandelingsservice in 2008.</p>
+        </div>
+    </div>
+    <div class="container left">
+        <div class="content">
+            <h2>2009</h2>
+            <p>Gedurende het jaar 2009 werden werknemers in dienst genomen, wat bijdroeg aan de verdere groei van het bedrijf.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>2010 t/m 2012</h2>
+            <p>In de daaropvolgende jaren, 2010, 2011 en 2012, werden meerdere grote klanten aangetrokken, waaronder Kober en de katholieke basisscholen Zandberg, Mandt en de Stee.</p>
+        </div>
+    </div>
+    <div class="container left">
+        <div class="content">
+            <h2>2017</h2>
+            <p>Deze positieve trend zette zich voort, en in 2017 werden T Web in Teteringen en HelderCamara aan de klantenlijst toegevoegd.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>2019 t/m 2023</h2>
+            <p>In de daaropvolgende jaren, 2019, 2020 en 2023, werd het klantenbestand verder uitgebreid met gerenommeerde namen zoals Gemeente Sport Breda, basisschool Springplank, Breepark en het COA.</p>
+        </div>
+    </div>
+    <div class="container left">
+        <div class="content">
+            <h2>Het Heden</h2>
+            <p>Het bedrijf heeft zich inmiddels ontwikkeld tot een serieus familiebedrijf, waar zowel tevreden werknemers als klanten een belangrijke rol spelen. Het streven naar klanttevredenheid staat centraal, met een focus op zowel kwaliteit als kwantiteit, 24/7. Het bedrijf beschikt over ervaren professionals die bekend zijn met alarmsystemen en nauwe banden onderhouden met meldkamers van beveiligingsdiensten om de veiligheid van hun klanten te waarborgen.</p>
         </div>
     </div>
 </div>
