@@ -219,7 +219,7 @@ session_start();
             <p>In de daaropvolgende jaren, 2010, 2011 en 2012, werden meerdere grote klanten aangetrokken, waaronder Kober en de katholieke basisscholen Zandberg, Mandt en de Stee.</p>
         </div>
     </div>
-    <div class="container right">
+    <div class="container left">
         <div class="content">
             <h2>2017</h2>
             <p>Deze positieve trend zette zich voort, en in 2017 werden T Web in Teteringen en HelderCamara aan de klantenlijst toegevoegd.</p>
@@ -231,7 +231,7 @@ session_start();
             <p>In de daaropvolgende jaren, 2019, 2020 en 2023, werd het klantenbestand verder uitgebreid met gerenommeerde namen zoals Gemeente Sport Breda, basisschool Springplank, Breepark en het COA.</p>
         </div>
     </div>
-    <div class="container right">
+    <div class="container left">
         <div class="content">
             <h2>Het Heden</h2>
             <p>Het bedrijf heeft zich inmiddels ontwikkeld tot een serieus familiebedrijf, waar zowel tevreden werknemers als klanten een belangrijke rol spelen. Het streven naar klanttevredenheid staat centraal, met een focus op zowel kwaliteit als kwantiteit, 24/7. Het bedrijf beschikt over ervaren professionals die bekend zijn met alarmsystemen en nauwe banden onderhouden met meldkamers van beveiligingsdiensten om de veiligheid van hun klanten te waarborgen.</p>
