@@ -1,4 +1,13 @@
 <?php
+/** @var mysqli $db */
+
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('Location:login.php');
+    exit;
+}
+
 
 ?>
 
@@ -20,11 +29,11 @@
             include_once 'includes/nav.php';
         ?>
     </header>
-<div class="formdiv">
+
+<div class="form2">
     <form action="" method="post">
 
-        <div>
-
+        <div class="div1">
             <div>
                 <label for="name">Naam</label>
             </div>
@@ -42,11 +51,8 @@
             </div>
         </div>
 
-
-
-
-        <div>
-            <div>
+        <div class="div2">
+            <div class="div2/5">
                 <div>
                     <label for="date">Datum</label>
                 </div>
@@ -64,7 +70,6 @@
                 </div>
 
             </div>
-
 
             <div>
                 <label for="location">Locatie</label>
