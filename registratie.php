@@ -54,6 +54,7 @@ if(isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
@@ -106,7 +107,7 @@ if(isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div>
-                        <input type="submit" name="submit" value="submit">
+                        <input class="form-knop" type="submit" name="submit" value="submit">
                     </div>
                     <div class="registratieErrors">
                         <p><?= $errors['naam'] ?? '' ?></p>
@@ -117,24 +118,9 @@ if(isset($_POST['submit'])) {
             </form>
         </div>
     </section>
-    <footer>
-        <div class="footerdiv">
-            <div>
-                <div>
-                    www.viktoriaschoonmaakbedrijf.com
-                </div>
-                <div>
-                    Neem contact op: nummer
-                </div>
-            </div>
-            <div>
-                <div class="linkdiv">
-                    <p> Meer weten? <a href="overons.php">Over ons</a></p>
-                </div>
-            </div>
-        </div>
-
-    </footer>
+<?php
+    include_once 'includes/footer.php';
+?>
 </main>
 </body>
 </html>

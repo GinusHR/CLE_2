@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="login.css">
-
 <footer>
     <div class="footerdiv">
         <div>
