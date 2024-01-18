@@ -9,6 +9,8 @@ if (!isset($_SESSION['user'])) {
 }
 
 
+
+
 ?>
 
 <!doctype html>
@@ -30,44 +32,52 @@ if (!isset($_SESSION['user'])) {
         ?>
     </header>
 
-<div class="form2">
-    <form action="" method="post">
+<div >
+    <form class="form2" action="" method="post">
+        <div class="div_ultra">
+            <div class="div1">
+              <div>
+                    <label for="name">Naam</label>
+                </div>
 
-        <div class="div1">
-            <div>
-                <label for="name">Naam</label>
-            </div>
+                <div>
+                    <input id="name" name="name" type="text" required>
+                 </div>
 
-            <div>
-                <input id="name" name="name" type="text" required>
-            </div>
+                <div>
+                     <label for="email">Email</label>
+                </div>
 
-            <div>
-                <label for="email">Email</label>
+                <div>
+                    <input id="email" name="email" type="email" required>
+                </div>
             </div>
-
-            <div>
-                <input id="email" name="email" type="email" required>
-            </div>
-        </div>
 
         <div class="div2">
             <div class="div2/5">
+
                 <div>
-                    <label for="date">Datum</label>
+                    <div>
+                        <label for="date">Datum</label>
+                    </div>
+
+                    <div>
+                        <input class="input2" id="date" name="date" type="date" required>
+                    </div>
+
                 </div>
 
                 <div>
-                    <input id="date" name="date" type="date" required>
+                    <div>
+                        <label for="time">Tijd</label>
+                    </div>
+
+                    <div >
+                        <input class="input2" id="time" name="time" type="time" required>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="time">Tijd</label>
-                </div>
 
-                <div>
-                    <input id="time" name="time" type="time" required>
-                </div>
 
             </div>
 
@@ -79,9 +89,10 @@ if (!isset($_SESSION['user'])) {
                 <input id="location" name="location" type="text" required>
             </div>
         </div>
+        </div>
 
+        <input class="form-knop" type="submit">
 
-        
     </form>
 
 </div>
