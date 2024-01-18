@@ -21,6 +21,7 @@ $user_id = mysqli_fetch_assoc($result)['id'];
 $query = "SELECT admin FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 $user_admin = mysqli_fetch_assoc($result)['admin'];
+
 if($user_admin == '1')
 {
     header("Location: wijzigADMIN.php");

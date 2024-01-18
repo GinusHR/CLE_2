@@ -82,8 +82,8 @@ $dates = mysqli_fetch_all($result);
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo substr($datetime[1], 0, -3)?></th>
                         <th><?php echo $date[2]?>
-                        <th class="tableLink"><a href="edit.php?<?php echo $date[0]?>">Wijzig</a></th>
-                        <th class="tableLink"><a href="delete.php?<?php echo $date[0]?>">Cancel</a></th>
+                        <th class="tableLink"><a href="edit.php?id=<?php echo $date[0]?>">Wijzig</a></th>
+                        <th class="tableLink"><a href="delete.php?id=<?php echo $date[0]?>">Cancel</a></th>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
