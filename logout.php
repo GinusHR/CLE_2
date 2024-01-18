@@ -64,4 +64,7 @@ if(!key_exists('user', $_SESSION))
 
 </body>
 
+    <?php
+    include_once 'includes/footer.php';
+    ?>
 </html>
