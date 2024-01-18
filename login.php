@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
                         'email' => $user['email'],
                     ];
                     $login = true;
-                    header('Location: index.php');
+                    header('Location:index.php');
                 } else {
                     $errors['loginFailed'] = 'Incorrect login credentials';
                 }

@@ -19,6 +19,14 @@ a {
     padding: 2vw;
 }
 
+.navlinks {
+    font-weight: bold;
+}
+
+.navCompanyName {
+    font-weight: bold;
+}
+
 .navknop {
     padding: 1vw;
     background-color: #ffffff;
