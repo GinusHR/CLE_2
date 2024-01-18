@@ -1,9 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/*div {
-    border: 2px solid red;
-}*/
 .navbar {
     display: flex;
     flex-direction: row;
