@@ -1,0 +1,21 @@
+.wijzigMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #E4DBD2;
+    background: #E4DBD2;
+    border-radius: 15px;
+    margin: 0 30%;
+    padding: 0 0 2% 0;
+}
+tr{
+}
+tbody th{
+    border: 1px solid black;
+    background-color: #F3F0EC;
+    font-weight: normal;
+    padding: 0 15px;
+}
+th a{
+
+}
