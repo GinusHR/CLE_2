@@ -70,7 +70,6 @@ if (isset($_POST['submit'])) {
     ?>
 </header>
 <section>
-    <!-- check if we are already logged in -->
     <?php if(isset($_SESSION['user'])):?>
         <div class="bigtext">
             <div>
@@ -153,7 +152,7 @@ if (isset($_POST['submit'])) {
 
 <footer>
     <?php
-    include_once 'includes/footer.php';
+        include_once 'includes/footer.php';
     ?>
 </footer>
 
