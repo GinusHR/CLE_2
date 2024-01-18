@@ -5,10 +5,9 @@ session_start();
 
 require_once 'includes/database.php';
 
-$login = false;
-
 $emailError = '';
 $passwordError = '';
+$loginerror = '';
 
 if (isset($_POST['submit'])) {
 
@@ -36,24 +35,17 @@ if (isset($_POST['submit'])) {
                         'name' => $user['name'],
                         'email' => $user['email'],
                     ];
-                    $login = true;
                     header('Location:index.php');
-                } else {
-                    $errors['loginFailed'] = 'Incorrect login credentials';
+                    exit;
                 }
-            } else {
-                $errors['loginFailed'] = 'Incorrect login credentials';
             }
 
-        } else {
-            $errors['loginFailed'] = 'Incorrect login credentials';
+            $loginerror = 'Incorrect login credentials';
         }
-
-    } else {
-        die('Database query error: ' . mysqli_error($db));
+        else {
+            die('Database query error: ' . mysqli_error($db));
+        }
     }
-
-
 }
 ?>
 <!doctype html>
@@ -69,8 +61,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="styles/style.css">
     <title>Viktoria Schoonmaakbedrijf-login</title>
 </head>
-
-
 <body>
 
 <header>
@@ -79,8 +69,8 @@ if (isset($_POST['submit'])) {
     ?>
 </header>
 <section>
-
-    <?php if($login) {?>
+    <!-- check if we are already logged in -->
+    <?php if(isset($_SESSION['user'])):?>
         <div class="bigtext">
             <div>
                 <p>U bent al ingelogd</p>
@@ -93,19 +83,26 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
 
-    <?php } else {?>
+    <?php else: ?>
+
+    <div class="bigtext">
+        <div>
+            <p>U moet nog inloggen</p>
+        </div>
+        <div class="smalltaxt">
+            <p>U moet ingelogd zijn om een afspraak te maken.</p>
+        </div>
+
+    </div>
+
+    <?php if(!empty($loginerror)): ?>
+        <div class="error">
+            <p><?= $loginerror ?></p>
+        </div>
+    <?php endif; ?>
 
     <div class="formdiv">
         <form action="" method="post">
-            <div class="bigtext">
-                <div>
-                    <p>U moet nog inloggen</p>
-                </div>
-                <div class="smalltaxt">
-                    <p>U moet ingelogd zijn om een afspraak te maken.</p>
-                </div>
-
-            </div>
 
             <div class="veld">
                 <div >
@@ -114,9 +111,11 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div>
                         <input name="email" id="email" type="email" placeholder="Email bvb. naam@org.nl" value="<?= $email ?? '' ?> " required>
-                       <div class="error">
-                           <?= $emailError ?>
+                        <?php if(!empty($emailError)): ?>
+                        <div class="error">
+                           <p><?= $emailError ?></p>
                        </div>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -126,9 +125,11 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div>
                         <input name="password" id="password"  type="password" placeholder="Wachtwoord" value="<?= $password ?? '' ?>" required>
+                        <?php if(!empty($passwordError)): ?>
                         <div class="error">
-                            <?= $passwordError ?>
+                            <p><?= $passwordError ?></p>
                         </div>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -143,16 +144,10 @@ if (isset($_POST['submit'])) {
                     <p>Nog geen account? <a href="registratie.php">Registreer</a> hier.</p>
                 </div>
             </div>
-
-
-
         </form>
-        <?php } ?>
+        <?php endif; ?>
     </div>
-
 </section>
-
-
 </body>
   <?php
     include_once 'includes/footer.php';
