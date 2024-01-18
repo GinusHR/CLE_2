@@ -5,10 +5,11 @@ session_start();
 
 require_once 'includes/database.php';
 
-$login = false;
+$login = isset($_SESSION['user']);
 
 $emailError = '';
 $passwordError = '';
+$loginerror = '';
 
 if (isset($_POST['submit'])) {
 
@@ -38,22 +39,16 @@ if (isset($_POST['submit'])) {
                     ];
                     $login = true;
                     header('Location:index.php');
-                } else {
-                    $errors['loginFailed'] = 'Incorrect login credentials';
+                    exit;
                 }
-            } else {
-                $errors['loginFailed'] = 'Incorrect login credentials';
             }
 
-        } else {
-            $errors['loginFailed'] = 'Incorrect login credentials';
+            $loginerror = 'Incorrect login credentials';
         }
-
-    } else {
-        die('Database query error: ' . mysqli_error($db));
+        else {
+            die('Database query error: ' . mysqli_error($db));
+        }
     }
-
-
 }
 ?>
 <!doctype html>
@@ -94,7 +89,12 @@ if (isset($_POST['submit'])) {
         </div>
 
     <?php } else {?>
-
+    <!--TODO: add css info for error div -->
+    <?php if(!empty($loginerror)): ?>
+    <div class="error">
+        <p><?= $loginerror ?></p>
+    </div>
+    <?php endif; ?>
     <div class="formdiv">
         <form action="" method="post">
 
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
                     <div>
                         <input name="email" id="email" type="email" placeholder="Email bvb. naam@org.nl" value="<?= $email ?? '' ?> " required>
                        <div class="error">
-                           <?= $emailError ?>
+                           <p><?= $emailError ?></p>
                        </div>
                     </div>
 
@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
                     <div>
                         <input name="password" id="password"  type="password" placeholder="Wachtwoord" value="<?= $password ?? '' ?>" required>
                         <div class="error">
-                            <?= $passwordError ?>
+                            <p><?= $passwordError ?></p>
                         </div>
                     </div>
 
