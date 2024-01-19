@@ -1,5 +1,12 @@
 <?php
-session_start();
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php?location=agenda.php");
+    exit;
+}
 /** @var $db */
 require_once 'includes/database.php';
 
@@ -41,29 +48,37 @@ mysqli_close($db);
     ?>
 </header>
 <main class="agendaMain">
-    <h1>Uw Afspraken</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Naam</th>
-            <th>Email</th>
-            <th>Datum</th>
-            <th>Aantal uren</th>
-            <th>Locatie</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($afspraken as $index => $afspraak) { ?>
+        <h1>Uw Afspraken</h1>
+    <?php if(!empty($afspraken)): ?>
+        <table>
+            <thead>
             <tr>
-                <td><?= $afspraak['name'] ?></td>
-                <td><?= $afspraak['email'] ?></td>
-                <td><?= $afspraak['datetime'] ?></td>
-                <td><?= $afspraak['hours'] ?></td>
-                <td><?= $afspraak['location'] ?></td>
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Datum</th>
+                <th>Aantal uren</th>
+                <th>Locatie</th>
             </tr>
-        <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($afspraken as $index => $afspraak) { ?>
+                <tr>
+                    <td><?= $afspraak['name'] ?></td>
+                    <td><?= $afspraak['email'] ?></td>
+                    <td><?= $afspraak['datetime'] ?></td>
+                    <td><?= $afspraak['hours'] ?></td>
+                    <td><?= $afspraak['location'] ?></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <div class="smalltaxt">
+            <div>
+                <p>Geen afspraken gevonden...</p>
+            </div>
+        </div>
+    <?php endif; ?>
 </main>
 <footer>
     <?php
