@@ -181,3 +181,10 @@ td {
 .agendaMain {
     min-height: 50vh;
 }
+.introOverOns {
+    background-color: #E4DBD2;
+    margin: 0 15vw;
+    padding: 2vw;
+    border: #E4DBD2 1px solid;
+    border-radius: 15px;
+}

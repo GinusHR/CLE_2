@@ -17,9 +17,8 @@
 <main>
     <div>
         <section>
-            <h1 class="bigtext">Contact</h1>
+            <h1 class="bigtext">Vragen? Wij horen graag van je!</h1>
             <div class="introOverOns">
-                <h1>Vragen? Wij horen graag van je!</h1>
                 <p>Bij Viktoria Schoonmaakbedrijf streven we naar een perfecte balans: hoge kwaliteit voor een lage kwantiteit. Jouw feedback is onze leidraad voor voortdurende verbetering. Neem gerust contact met ons op en ervaar de schoonheid van ongeëvenaarde service!</p>
                 <p>
                     ✉️ dijana-@live.nl
@@ -38,12 +37,3 @@
     include_once 'includes/footer.php';
     ?>
 </footer>
-<style>
-    .introOverOns {
-        background-color: #E4DBD2;
-        margin: 0 15vw;
-        padding: 2vw;
-        border: #E4DBD2 1px solid;
-        border-radius: 15px;
-    }
-</style>
