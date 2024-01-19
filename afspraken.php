@@ -15,7 +15,9 @@ if (isset($_POST['submit'])) {
     $datetime = $_POST['date']['time'];
     $description = $_POST['omschrijving'];
     $afspraak = $_POST['soort'];
-    $id = $_SESSION['id'];
+    $price = $_POST['price'];
+    $hours = $_POST['hours'];
+    $id = $_SESSION['user']['id'];
 
     $errors = [];
     if ($location == '') {
@@ -32,8 +34,8 @@ if (isset($_POST['submit'])) {
 
 
     if (empty($errors)) {
-        $query = "INSERT INTO dates (user_id, job_id, location, description, datetime, size)
-                VALUES ('$id', '18', '$location', '$description', '$datetime', '$afspraak')";
+        $query = "INSERT INTO `dates` (user_id, job_id, location, description, datetime, size, price, hours)
+                VALUES ('$id', '18', '$location', '$description', '$datetime', '$afspraak', $price, $hours)";
         $result = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
     }
     mysqli_close($db);
@@ -110,7 +112,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div>
-                        <input class="input2" id="date" name="date" type="date" required>
+                        <input class="input2" id="date" name="date" type="date"  required>
                     </div>
 
                 </div>
@@ -122,6 +124,7 @@ if (isset($_POST['submit'])) {
 
                     <div >
                         <input class="input2" id="time" name="time" type="time" required>
+
                     </div>
                 </div>
 
@@ -136,6 +139,31 @@ if (isset($_POST['submit'])) {
                 <div>
                     <input id="soort" name="soort" type="text" required>
 
+                </div>
+
+                <div>
+                    <label for="hours">Uren</label>
+                </div>
+
+                <div>
+                    <input id="hours" name="hours" type="number" min="0" max="10" required>
+
+                </div>
+
+                <div>
+                    <label for="price">Prijs</label>
+                </div>
+
+                <div>
+                    <select name="price" id="price" required>
+                        <option value="0">0</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                        <option value="300">300</option>
+
+                    </select>
                 </div>
             </div>
 
