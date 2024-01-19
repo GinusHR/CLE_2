@@ -12,6 +12,11 @@ $query = "SELECT * FROM jobs";
 $result = mysqli_query($db, $query);
 $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+if(!key_exists('id', $_GET))
+{
+    header("Location: wijzig.php");
+    exit();
+}
 
 $id = htmlentities($_GET['id']);
 $query = "SELECT * FROM dates WHERE id = '$id'";
@@ -23,9 +28,9 @@ $query = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 $user_info = mysqli_fetch_assoc($result);
 
-if($user_info['admin'] != '1' && $user_info['id'] != $date['user_id'])
+if(!$date || ($user_info['admin'] != '1' && $user_info['id'] != $date['user_id']))
 {
-    header("Location: wijzig.php", 403); //no access; get out
+    header("Location: wijzig.php");
     exit;
 }
 $job_id = $date['job_id'];
