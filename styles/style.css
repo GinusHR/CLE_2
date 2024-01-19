@@ -151,6 +151,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    border: 1px solid #E4DBD2;
+    border-radius: 20px;
+    background-color: #E4DBD2;
+    margin: 0 18%;
+    margin-top: 6vh;
+    padding: 0 0 3% 0;
 }
 
 .registratieErrors p {
@@ -168,3 +174,4 @@ table {
 td {
     border: solid black 2px;
 }
+

@@ -118,12 +118,11 @@ if(isset($_POST['submit'])) {
             </form>
         </div>
     </section>
-
-    <footer>
-        <?php
-        include_once 'includes/footer.php';
-        ?>
-    </footer>
 </main>
+<footer>
+    <?php
+    include_once 'includes/footer.php';
+    ?>
+</footer>
 </body>
 </html>
