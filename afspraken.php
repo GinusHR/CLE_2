@@ -11,19 +11,15 @@ if (!isset($_SESSION['user'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $location = mysqli_real_escape_string($db, $_POST['location']);
-    $datetime = mysqli_real_escape_string($db, $_POST['date']['time']);
-    $description = mysqli_real_escape_string($db, $_POST['omschrijving']);
-    $afspraak = mysqli_real_escape_string($db, $_POST['soort']);
+    $location = $_POST['location'];
+    $datetime = $_POST['date']['time'];
+    $description = $_POST['omschrijving'];
+    $afspraak = $_POST['soort'];
     $id = $_SESSION['id'];
 
     $errors = [];
     if ($location == '') {
         $errors['location'] = 'Voer de locatie in';
-    }
-
-    if ($description == '') {
-        $errors['omschrijving'] = '';
     }
 
     if ($datetime == '') {
