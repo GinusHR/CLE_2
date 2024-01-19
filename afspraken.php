@@ -61,7 +61,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
 
                     <div>
-                        <textarea name="omschrijving" id="omschrijving" cols="30" rows="10"></textarea>
+                        <textarea name="omschrijving" id="omschrijving" cols="39" rows="10"></textarea>
                     </div>
                 </div>
 
