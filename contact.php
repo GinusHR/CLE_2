@@ -23,7 +23,8 @@
                 <p>
                     ✉️ dijana-@live.nl
                 </p>
-                <p>️🗨️️ We staan altijd voor je klaar, 24/7 ondersteuning!  Onze ondersteuning is zelfs in het weekend beschikbaar!</p>
+                <p>️🗨️️ We staan altijd voor je klaar, 24/7 ondersteuning!  Onze ondersteuning is zelfs in het weekend beschikbaar!
+                </p>
                 <p>📞 +31648267306
                 </p>
             </div>
