@@ -1,11 +1,46 @@
 <?php
 /** @var mysqli $db */
 
+require_once 'includes/database.php';
+
 session_start();
 
 if (!isset($_SESSION['user'])) {
     header('Location: login.php?location=afspraken.php');
     exit;
+}
+
+if (isset($_POST['submit'])) {
+    $location = mysqli_real_escape_string($db, $_POST['location']);
+    $datetime = mysqli_real_escape_string($db, $_POST['date']['time']);
+    $description = mysqli_real_escape_string($db, $_POST['omschrijving']);
+    $afspraak = mysqli_real_escape_string($db, $_POST['soort']);
+    $id = $_SESSION['id'];
+
+    $errors = [];
+    if ($location == '') {
+        $errors['location'] = 'Voer de locatie in';
+    }
+
+    if ($description == '') {
+        $errors['omschrijving'] = '';
+    }
+
+    if ($datetime == '') {
+        $errors['date']['time'] = 'Voer de datum en tijd in';
+    }
+
+    if ($afspraak == '') {
+        $errors['soort'] = 'Voer de soort afspraak in';
+    }
+
+
+    if (empty($errors)) {
+        $query = "INSERT INTO dates (user_id, job_id, location, description, datetime, size)
+                VALUES ('$id', '18', '$location', '$description', '$datetime', '$afspraak')";
+        $result = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
+    }
+    mysqli_close($db);
 }
 
 
@@ -50,6 +85,7 @@ if (!isset($_SESSION['user'])) {
 
                     <div>
                         <input id="location" name="location" type="text" required>
+
                     </div>
                 </div>
 
@@ -103,6 +139,7 @@ if (!isset($_SESSION['user'])) {
 
                 <div>
                     <input id="soort" name="soort" type="text" required>
+
                 </div>
             </div>
 
