@@ -10,15 +10,30 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
+$query = "SELECT * FROM jobs";
+$result = mysqli_query($db, $query);
+$jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$success = false;
+
 if (isset($_POST['submit'])) {
     $location = $_POST['location'];
-    $datetime = $_POST['date']['time'];
+    $datetime = $_POST['date'] ." ". $_POST['time'];
     $description = $_POST['omschrijving'];
-    $afspraak = $_POST['soort'];
-    $price = $_POST['price'];
+    $job_id = $_POST['job'];
+    $job_price = 0;
+
+    foreach($jobs as $job)
+    {
+        if($job['id'] == $job_id)
+        {
+            $job_price = $job['price'];
+            break;
+        }
+    }
     $hours = $_POST['hours'];
     $id = $_SESSION['user']['id'];
-    $job_id = 18;
+
+    $price = $job_price * $hours;
 
     $errors = [];
     if($location == '') {
@@ -27,10 +42,6 @@ if (isset($_POST['submit'])) {
 
     if($datetime == '') {
         $errors['date']['time'] = 'Voer de datum en tijd in';
-    }
-
-    if($afspraak == '') {
-        $errors['soort'] = 'Voer de soort afspraak in';
     }
 
     if($price == '') {
@@ -43,11 +54,12 @@ if (isset($_POST['submit'])) {
 
 
     if (empty($errors)) {
-        $query = "INSERT INTO `dates` (user_id, job_id, location, description, datetime, size, price, hours)
-                VALUES ($id, $job_id, '$location', '$description', '$datetime', '$afspraak', $price, $hours)";
+        $query = "INSERT INTO `dates` (user_id, job_id, location, description, datetime, price, hours)
+                VALUES ($id, $job_id, '$location', '$description', '$datetime', $price, $hours)";
         $result = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
     }
     mysqli_close($db);
+    $success = true;
 }
 
 
@@ -73,6 +85,12 @@ if (isset($_POST['submit'])) {
             include_once 'includes/nav.php';
         ?>
     </header>
+
+    <?php if($success): ?>
+    <div class="bigtext">
+        <p>Afspraak succesvol toegevoegd.</p>
+    </div>
+    <?php endif; ?>
 
 <div class="div0" >
 
@@ -142,11 +160,18 @@ if (isset($_POST['submit'])) {
 
             <div class="soortDiv">
                 <div>
-                    <label for="soort">Soort afspraak</label>
+                    <label for="job">Soort afspraak</label>
                 </div>
 
                 <div>
-                    <input id="soort" name="soort" type="text" required>
+                    <select id="job" name="job">
+                        <option value=""></option>
+                        <?php foreach($jobs as $job): ?>
+                            <option value="<?php echo $job['id']?>">
+                                <?php echo $job['name']?> (€<?php echo $job['price']?>/hr)
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                     <?= $errors['soort'] ?? '' ?>
                 </div>
 
@@ -155,31 +180,17 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div>
-                    <input id="hours" name="hours" type="number" min="1" max="10" required>
+                    <input id="hours" name="hours" type="number" min="1" max="10" value="1" required>
                     <?= $errors['hours'] ?? '' ?>
-                </div>
-
-                <div>
-                    <label for="price">Prijs</label>
-                </div>
-
-                <div>
-                    <select name="price" id="price" required>
-                        <option value="0">0</option>
-                        <option value="100">100</option>
-                        <option value="150">150</option>
-                        <option value="200">200</option>
-                        <option value="250">250</option>
-                        <option value="300">300</option>
-                        <?= $errors['price'] ?? '' ?>
-                    </select>
                 </div>
             </div>
 
         </div>
         </div>
 
-        <input class="form-knop" type="submit">
+        <button class="form-knop" type="submit" name="submit">
+            Verzenden
+        </button>
 
     </form>
 
