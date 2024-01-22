@@ -30,7 +30,7 @@ if($user_admin == '1')
 
 $query = "SELECT * FROM dates where user_id = '$user_id'";
 $result = mysqli_query($db, $query);
-$dates = mysqli_fetch_all($result);
+$dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
 <!doctype html>
@@ -71,13 +71,13 @@ $dates = mysqli_fetch_all($result);
                 </thead>
                 <tbody>
                 <?php foreach ($dates as $date):
-                    $datetime = explode(" ", $date[4]);?>
+                    $datetime = explode(" ", $date['datetime']);?>
                     <tr>
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo substr($datetime[1], 0, -3)?></th>
-                        <th><?php echo $date[2]?>
-                        <th class="tableLink"><a href="edit.php?<?php echo $date[0]?>">Wijzig</a></th>
-                        <th class="tableLink"><a href="delete.php?<?php echo $date[0]?>">Cancel</a></th>
+                        <th><?php echo $date['location']?>
+                        <th class="tableLink"><a href="edit.php?<?php echo $date['id']?>">Wijzig</a></th>
+                        <th class="tableLink"><a href="delete.php?<?php echo $date['id']?>">Cancel</a></th>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
