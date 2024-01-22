@@ -28,7 +28,7 @@ if(!key_exists('user', $_SESSION))
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/wijzig.css">
+    <link rel="stylesheet" href="styles/afspraken.css">
     <title>Viktoria Schoonmaakbedrijf - Logout</title>
 </head>
 
@@ -41,10 +41,8 @@ if(!key_exists('user', $_SESSION))
     ?>
 </header>
 
-<main class="wijzigMain">
-    <div class="backgroundDiv">
+<div class="div0">
 
-    <section>
         <div class="bigtext">
             <div>
                 <p>Log out</p>
@@ -62,9 +60,7 @@ if(!key_exists('user', $_SESSION))
                     </div>
                 </div>
             </form>
-    </section>
-    </div>
-</main>
+</div>
 
 
 </body>
