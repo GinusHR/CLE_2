@@ -20,16 +20,24 @@ if (isset($_POST['submit'])) {
     $id = $_SESSION['user']['id'];
 
     $errors = [];
-    if ($location == '') {
+    if($location == '') {
         $errors['location'] = 'Voer de locatie in';
     }
 
-    if ($datetime == '') {
+    if($datetime == '') {
         $errors['date']['time'] = 'Voer de datum en tijd in';
     }
 
-    if ($afspraak == '') {
+    if($afspraak == '') {
         $errors['soort'] = 'Voer de soort afspraak in';
+    }
+
+    if($price == '') {
+        $errors['price'] = 'Selecteer de prijs';
+    }
+
+    if($hours == '') {
+        $errors['hours'] = 'Kies het aantal uur';
     }
 
 
@@ -83,7 +91,7 @@ if (isset($_POST['submit'])) {
 
                     <div>
                         <input id="location" name="location" type="text" required>
-
+                            <?= $errors['location'] ?? '' ?>
                     </div>
                 </div>
 
@@ -124,7 +132,7 @@ if (isset($_POST['submit'])) {
 
                     <div >
                         <input class="input2" id="time" name="time" type="time" required>
-
+                        <?= $errors['date'] ?? '' ?>
                     </div>
                 </div>
 
@@ -138,7 +146,7 @@ if (isset($_POST['submit'])) {
 
                 <div>
                     <input id="soort" name="soort" type="text" required>
-
+                    <?= $errors['soort'] ?? '' ?>
                 </div>
 
                 <div>
@@ -147,7 +155,7 @@ if (isset($_POST['submit'])) {
 
                 <div>
                     <input id="hours" name="hours" type="number" min="0" max="10" required>
-
+                    <?= $errors['hours'] ?? '' ?>
                 </div>
 
                 <div>
@@ -162,7 +170,7 @@ if (isset($_POST['submit'])) {
                         <option value="200">200</option>
                         <option value="250">250</option>
                         <option value="300">300</option>
-
+                        <?= $errors['price'] ?? '' ?>
                     </select>
                 </div>
             </div>
