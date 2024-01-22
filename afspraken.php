@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     $price = $_POST['price'];
     $hours = $_POST['hours'];
     $id = $_SESSION['user']['id'];
+    $job_id = 18;
 
     $errors = [];
     if($location == '') {
@@ -43,7 +44,7 @@ if (isset($_POST['submit'])) {
 
     if (empty($errors)) {
         $query = "INSERT INTO `dates` (user_id, job_id, location, description, datetime, size, price, hours)
-                VALUES ('$id', '18', '$location', '$description', '$datetime', '$afspraak', $price, $hours)";
+                VALUES ($id, $job_id, '$location', '$description', '$datetime', '$afspraak', $price, $hours)";
         $result = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
     }
     mysqli_close($db);
@@ -154,7 +155,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div>
-                    <input id="hours" name="hours" type="number" min="0" max="10" required>
+                    <input id="hours" name="hours" type="number" min="1" max="10" required>
                     <?= $errors['hours'] ?? '' ?>
                 </div>
 
