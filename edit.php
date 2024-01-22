@@ -38,10 +38,60 @@ $job_id = $date['job_id'];
 $query = "SELECT name FROM jobs where id = '$job_id'";
 $result = mysqli_query($db, $query);
 $selected_job = mysqli_fetch_assoc($result);
-//TODO: handle non-existent $date
 
-//TODO: update date in database
+$success = false;
 
+if (isset($_POST['submit'])) {
+    $location = $_POST['location'];
+    $datetime = $_POST['date'] ." ". $_POST['time'];
+    $description = $_POST['omschrijving'];
+    $job_id = $_POST['job'];
+    $job_price = 0;
+
+    foreach($jobs as $job)
+    {
+        if($job['id'] == $job_id)
+        {
+            $job_price = $job['price'];
+            break;
+        }
+    }
+    $hours = $_POST['hours'];
+    $user_id = $_SESSION['user']['id'];
+
+    $price = $job_price * $hours;
+
+    $errors = [];
+    if($location == '') {
+        $errors['location'] = 'Voer de locatie in';
+    }
+
+    if($datetime == '') {
+        $errors['date']['time'] = 'Voer de datum en tijd in';
+    }
+
+    if($price == '') {
+        $errors['price'] = 'Selecteer de prijs';
+    }
+
+    if($hours == '') {
+        $errors['hours'] = 'Kies het aantal uur';
+    }
+
+
+    if (empty($errors)) {
+        $query = "UPDATE `dates`
+        SET `job_id` = $job_id, `location` = '$location', `description` = '$description', `datetime` = '$datetime', `price` = $price, `hours` = $hours
+        WHERE `id` = $id";
+        $success = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
+    }
+    $query = "SELECT * FROM dates WHERE id = '$id'";
+    $result = mysqli_query($db, $query);
+    $date = mysqli_fetch_assoc($result);
+}
+
+
+mysqli_close($db);
 ?>
 
 <!doctype html>
@@ -63,10 +113,17 @@ $selected_job = mysqli_fetch_assoc($result);
     ?>
 </header>
 
+
+<?php if($success): ?>
+    <div class="bigtext">
+        <p>Afspraak succesvol gewijzigd.</p>
+    </div>
+<?php endif; ?>
+
 <div class="div0" >
 
     <div class="bigtext">
-        <p>Wijzig een afspraak</p>
+        <p>Maak een afspraak</p>
 
     </div>
 
@@ -80,7 +137,8 @@ $selected_job = mysqli_fetch_assoc($result);
                     </div>
 
                     <div>
-                        <input id="location" name="location" type="text" value="<?php echo $date['location'] ?>"required>
+                        <input id="location" name="location" type="text" value="<?php echo $date['location'] ?>" required>
+                        <?= $errors['location'] ?? '' ?>
                     </div>
                 </div>
 
@@ -92,7 +150,7 @@ $selected_job = mysqli_fetch_assoc($result);
                     </div>
 
                     <div>
-                        <textarea name="omschrijving" id="omschrijving" cols="30" rows="10"><?php echo $date['description'] ?></textarea>
+                        <textarea name="omschrijving" id="omschrijving" cols="39" rows="10"><?php echo $date['description'] ?></textarea>
                     </div>
                 </div>
 
@@ -121,6 +179,7 @@ $selected_job = mysqli_fetch_assoc($result);
 
                         <div >
                             <input class="input2" id="time" name="time" type="time" value="<?php echo explode(" ", $date['datetime'])[1] ?>" required>
+                            <?= $errors['date'] ?? '' ?>
                         </div>
                     </div>
 
@@ -135,22 +194,34 @@ $selected_job = mysqli_fetch_assoc($result);
                     <div>
                         <select id="job" name="job">
                             <option value=""></option>
-                        <?php foreach($jobs as $job): ?>
-                            <option
-                                value="<?php echo $job['name']?>"
-                                <?php if($job['name'] == $selected_job['name']) echo 'selected';?>
-                            >
-                                <?php echo $job['name']?>
-                            </option>
-                        <?php endforeach; ?>
+                            <?php foreach($jobs as $job): ?>
+                                <option
+                                        value="<?php echo $job['id']?>"
+                                    <?php if($job['name'] == $selected_job['name']) echo 'selected';?>
+                                >
+                                    <?php echo $job['name']?> (€<?php echo $job['price']?>/hr)
+                                </option>
+                            <?php endforeach; ?>
                         </select>
+                        <?= $errors['soort'] ?? '' ?>
+                    </div>
+
+                    <div>
+                        <label for="hours">Uren</label>
+                    </div>
+
+                    <div>
+                        <input id="hours" name="hours" type="number" min="1" max="10" value="<?php echo $date['hours'] ?>" required>
+                        <?= $errors['hours'] ?? '' ?>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <input class="form-knop" type="submit">
+        <button class="form-knop" type="submit" name="submit">
+            Verzenden
+        </button>
 
     </form>
 
