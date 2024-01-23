@@ -24,7 +24,7 @@ $afspraken = [];
 while($row = mysqli_fetch_assoc($result))
     $afspraken[] = $row;
 
-mysqli_close($db);
+
 
 ?>
 <!doctype html>
