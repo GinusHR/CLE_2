@@ -123,7 +123,7 @@ mysqli_close($db);
 <div class="div0" >
 
     <div class="bigtext">
-        <p>Maak een afspraak</p>
+        <p>Edit een afspraak</p>
 
     </div>
 
@@ -220,7 +220,7 @@ mysqli_close($db);
         </div>
 
         <button class="form-knop" type="submit" name="submit">
-            Verzenden
+            Wijzig
         </button>
 
     </form>

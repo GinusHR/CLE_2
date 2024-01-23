@@ -5,7 +5,7 @@ if(!isset($_SESSION))
 }
 if(!isset($_SESSION['user']))
 {
-    header("Location: login.php?location=wijzig.php");
+    header("Location: login.php?location=taken.php");
     exit;
 }
 
@@ -14,23 +14,19 @@ require_once 'includes/database.php';
 
 $email = $_SESSION['user']['email'];
 
-$query = "SELECT id FROM users WHERE email = '$email'";
-$result = mysqli_query($db, $query);
-$user_id = mysqli_fetch_assoc($result)['id'];
-
 $query = "SELECT admin FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 $user_admin = mysqli_fetch_assoc($result)['admin'];
 
-if($user_admin == '1')
+if($user_admin != '1')
 {
-    header("Location: wijzigADMIN.php");
+    header("Location: wijzig.php");
     exit;
 }
 
-$query = "SELECT * FROM dates where user_id = '$user_id'";
+$query = "SELECT * FROM jobs";
 $result = mysqli_query($db, $query);
-$dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
 <!doctype html>
@@ -56,40 +52,28 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <div class="backgroundDiv">
         <div class="bigtext">
             <div>
-                <p>Wijzig afspraken</p>
+                <p>Taken</p>
             </div>
         </div>
-        <?php if(!empty($dates)): ?>
+        <?php if(!empty($jobs)): ?>
             <table class="wijzigTable">
                 <thead>
                     <tr>
-                        <th>Datum</th>
-                        <th>Tijd</th>
-                        <th>Locatie</th>
-                        <th>Soort taak</th>
-                        <th>Uren</th>
+                        <th>Naam</th>
+                        <th>Omschrijving</th>
                         <th>Prijs</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($dates as $date):
-                    $datetime = explode(" ", $date['datetime']);
-
-                    $job_id = $date['job_id'];
-                    $query = "SELECT name FROM jobs WHERE id = '$job_id'";
-                    $result = mysqli_query($db, $query);
-                    $job =  mysqli_fetch_assoc($result);
-                    ?>
+                <?php foreach ($jobs as $job):
+                ?>
                     <tr>
-                        <th><?php echo $datetime[0]?></th>
-                        <th><?php echo substr($datetime[1], 0, -3)?></th>
-                        <th><?php echo $date['location']?></th>
                         <th><?php echo $job['name']?></th>
-                        <th><?php echo $date['hours']?></th>
-                        <th>€<?php echo $date['price']?></th>
-                        <th class="tableLink"><a href="edit.php?id=<?php echo $date['id']?>">Wijzig</a></th>
-                        <th class="tableLink"><a href="delete.php?id=<?php echo $date['id']?>">Cancel</a></th>
+                        <th><?php echo $job['description']?></th>
+                        <th>€<?php echo $job['price']?>/hr</th>
+                        <th class="tableLink"><a href="editTaak.php?id=<?php echo $job['id']?>">Wijzig</a></th>
+                        <th class="tableLink"><a href="deleteTaak.php?id=<?php echo $job['id']?>">Verwijder</a></th>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -97,7 +81,7 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php else: ?>
         <div class="smalltaxt">
             <div>
-                <p>Geen afspraken gevonden...</p>
+                <p>Geen taken gevonden...</p>
             </div>
         </div>
         <?php endif; ?>
