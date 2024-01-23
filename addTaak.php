@@ -4,27 +4,16 @@ require_once 'includes/database.php';
 
 session_start();
 if (!isset($_SESSION['user'])) {
-    header('Location: login.php?location=editTaak.php?id='.$_GET['id']);
+    header('Location: login.php?location=addTaak.php?id='.$_GET['id']);
     exit;
 }
-
-if(!key_exists('id', $_GET))
-{
-    header("Location: taken.php");
-    exit;
-}
-
-$id = htmlentities($_GET['id']);
-$query = "SELECT * FROM jobs WHERE id = '$id'";
-$result = mysqli_query($db, $query);
-$job = mysqli_fetch_assoc($result);
 
 $email = $_SESSION['user']['email'];
 $query = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 $user_info = mysqli_fetch_assoc($result);
 
-if(!$job || ($user_info['admin'] != '1'))
+if(($user_info['admin'] != '1'))
 {
     header("Location: taken.php");
     exit;
@@ -44,7 +33,7 @@ if (isset($_POST['submit'])) {
     }
 
     if($description == '') {
-        $errors['description'] = 'Voer een omschrijving toe';
+        $errors['description'] = 'Voeg een omschrijving toe';
     }
 
     if($price == '') {
@@ -53,15 +42,10 @@ if (isset($_POST['submit'])) {
 
 
     if (empty($errors)) {
-        $query = "UPDATE `jobs`
-        SET `name` = '$name', `description` = '$description', `price` = $price
-        WHERE `id` = $id";
+        $query = "INSERT INTO `jobs` (name, description, price) 
+        VALUES ('$name', '$description', $price)";
         $success = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
     }
-
-    $query = "SELECT * FROM jobs WHERE id = '$id'";
-    $result = mysqli_query($db, $query);
-    $job = mysqli_fetch_assoc($result);
 }
 ?>
 
@@ -87,14 +71,14 @@ if (isset($_POST['submit'])) {
 
 <?php if($success): ?>
     <div class="bigtext">
-        <p>Taak succesvol gewijzigd.</p>
+        <p>Taak succesvol toegevoegd.</p>
     </div>
 <?php endif; ?>
 
 <div class="div0" >
 
     <div class="bigtext">
-        <p>Edit een taak</p>
+        <p>Maak een taak</p>
 
     </div>
 
@@ -108,7 +92,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div>
-                        <input id="name" name="name" type="text" value="<?php echo $job['name'] ?>" required>
+                        <input id="name" name="name" type="text" value="" required>
                         <?= $errors['name'] ?? '' ?>
                     </div>
                 </div>
@@ -121,7 +105,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div>
-                        <textarea name="description" id="description" cols="39" rows="10"><?php echo $job['description'] ?></textarea>
+                        <textarea name="description" id="description" cols="39" rows="10"></textarea>
                         <?= $errors['description'] ?? '' ?>
                     </div>
                 </div>
@@ -132,14 +116,14 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div>
-                        €<input id="price" name="price" type="number" step="0.01" min="0.00" value="<?php echo $job['price'] ?>" required>
+                        €<input id="price" name="price" type="number" step=0.01 min="0.00" value="0.00" required>
                         <?= $errors['price'] ?? '' ?>
                     </div>
                 </div>
             </div>
 
         <button class="form-knop" type="submit" name="submit">
-            Wijzig
+            Toevoegen
         </button>
     </form>
 
