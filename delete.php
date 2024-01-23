@@ -56,8 +56,6 @@ if (isset($_POST['submit'])) {
     exit();
 }
 
-
-mysqli_close($db);
 ?>
 
 <!doctype html>
