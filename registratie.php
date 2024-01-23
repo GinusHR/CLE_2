@@ -41,7 +41,6 @@ if(isset($_POST['submit'])) {
         } else {
             $errors['db'] = mysqli_error($db);
         }
-        mysqli_close($db);
     }
 }
 ?>

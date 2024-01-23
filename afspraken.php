@@ -64,7 +64,6 @@ if (isset($_POST['submit'])) {
                 VALUES ($id, $job_id, '$location', '$description', '$datetime', $price, $hours)";
         $result = mysqli_query($db, $query) or die('Error:' . mysqli_error($db));
     }
-    mysqli_close($db);
     $success = true;
 }
 
