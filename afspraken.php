@@ -22,6 +22,11 @@ if (isset($_POST['submit'])) {
     $job_id = $_POST['job'];
     $job_price = 0;
 
+    if($job_id == 0)
+    {
+        return;
+    }
+
     foreach($jobs as $job)
     {
         if($job['id'] == $job_id)
@@ -47,6 +52,7 @@ if (isset($_POST['submit'])) {
     if($price == '') {
         $errors['price'] = 'Selecteer de prijs';
     }
+
 
     if($hours == '') {
         $errors['hours'] = 'Kies het aantal uur';
@@ -164,7 +170,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div>
-                    <select id="job" name="job">
+                    <select id="job" name="job" required>
                         <option value=""></option>
                         <?php foreach($jobs as $job): ?>
                             <option value="<?php echo $job['id']?>">

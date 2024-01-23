@@ -63,21 +63,33 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <table class="wijzigTable">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Location</th>
-                        <th colspan="1"></th>
+                        <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Locatie</th>
+                        <th>Soort taak</th>
+                        <th>Uren</th>
+                        <th>Prijs</th>
+                        <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($dates as $date):
-                    $datetime = explode(" ", $date['datetime']);?>
+                    $datetime = explode(" ", $date['datetime']);
+
+                    $job_id = $date['job_id'];
+                    $query = "SELECT name FROM jobs WHERE id = '$job_id'";
+                    $result = mysqli_query($db, $query);
+                    $job =  mysqli_fetch_assoc($result);
+                    ?>
                     <tr>
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo substr($datetime[1], 0, -3)?></th>
                         <th><?php echo $date['location']?>
-                        <th class="tableLink"><a href="edit.php?<?php echo $date['id']?>">Wijzig</a></th>
-                        <th class="tableLink"><a href="delete.php?<?php echo $date['id']?>">Cancel</a></th>
+                        <th><?php echo $job['name']?>
+                        <th><?php echo $date['hours']?>
+                        <th>€<?php echo $date['price']?>
+                        <th class="tableLink"><a href="edit.php?id=<?php echo $date['id']?>">Wijzig</a></th>
+                        <th class="tableLink"><a href="delete.php?id=<?php echo $date['id']?>">Cancel</a></th>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

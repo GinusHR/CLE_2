@@ -52,7 +52,7 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <div class="backgroundDiv">
         <div class="bigtext">
             <div>
-                <p>Wijzig afspraken</p>
+                <p>Wijzig afspraken (ADMIN)</p>
             </div>
         </div>
         <?php if(!empty($dates)): ?>
@@ -64,6 +64,9 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th>Datum</th>
                         <th>Tijd</th>
                         <th>Locatie</th>
+                        <th>Soort taak</th>
+                        <th>Uren</th>
+                        <th>Prijs</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -74,6 +77,11 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     $query = "SELECT * FROM users WHERE id = '$user_id'";
                     $result = mysqli_query($db, $query);
                     $user = mysqli_fetch_assoc($result);
+
+                    $job_id = $date['job_id'];
+                    $query = "SELECT name FROM jobs WHERE id = '$job_id'";
+                    $result = mysqli_query($db, $query);
+                    $job =  mysqli_fetch_assoc($result);
                 ?>
                     <tr>
                         <th><?php echo $user['name']?></th>
@@ -81,6 +89,9 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th><?php echo $datetime[0]?></th>
                         <th><?php echo $datetime[1]?></th>
                         <th><?php echo $date['location']?>
+                        <th><?php echo $job['name']?>
+                        <th><?php echo $date['hours']?>
+                        <th>€<?php echo $date['price']?>
                         <th class="tableLink"><a href="edit.php?id=<?php echo $date['id']?>">Wijzig</a></th>
                         <th class="tableLink"><a href="delete.php?id=<?php echo $date['id']?>">Cancel</a></th>
                     </tr>
