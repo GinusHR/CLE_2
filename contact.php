@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/afspraken.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/login.css">
-    <title>Contact</title>
+    <title>Viktoria Schoonmaakbedrijf - Contact</title>
 </head>
 <body>
 <header>
