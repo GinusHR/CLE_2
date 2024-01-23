@@ -87,7 +87,7 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th><?php echo $user['name']?></th>
                         <th><?php echo $user['email']?></th>
                         <th><?php echo $datetime[0]?></th>
-                        <th><?php echo $datetime[1]?></th>
+                        <th><?php echo substr($datetime[1], 0, -3)?></th>
                         <th><?php echo $date['location']?></th>
                         <th><?php echo $job['name']?></th>
                         <th><?php echo $date['hours']?></th>
