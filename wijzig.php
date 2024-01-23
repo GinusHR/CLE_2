@@ -87,7 +87,7 @@ $dates = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th><?php echo $date['location']?></th>
                         <th><?php echo $job['name']?></th>
                         <th><?php echo $date['hours']?></th>
-                        <th>€<?php echo $date['price']?></th>
+                        <th>€<?php echo number_format((float)$date['price'], 2, '.', '')?></th>
                         <th class="tableLink"><a href="edit.php?id=<?php echo $date['id']?>">Wijzig</a></th>
                         <th class="tableLink"><a href="delete.php?id=<?php echo $date['id']?>">Cancel</a></th>
                     </tr>
