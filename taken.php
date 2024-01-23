@@ -55,6 +55,11 @@ $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <p>Taken</p>
             </div>
         </div>
+
+        <div class="tableLink">
+            <a href="addTaak.php">Voeg een taak toe</a>
+        </div>
+        <br>
         <?php if(!empty($jobs)): ?>
             <table class="wijzigTable">
                 <thead>
